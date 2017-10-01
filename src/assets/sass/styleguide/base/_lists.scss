@@ -1,0 +1,131 @@
+/**
+ * LISTS
+ */
+
+/* -------------------------------------------------------------------------- *\
+   #TABLE OF CONTENTS
+\* -------------------------------------------------------------------------- */
+
+/**
+ * CUSTOM
+ */
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #CUSTOM
+\* -------------------------------------------------------------------------- */
+
+.sg-list {
+    @include sg-list();
+
+    /**
+     * Inline
+     */
+
+    &.sg-list--inline {
+        @include sg-clearfix();
+
+        li {
+            float: left;
+            margin-left: 1rem;
+            margin-bottom: 0;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    /**
+     * Unstyled
+     */
+
+    &.sg-list--unstyled {
+        @include sg-list();
+    }
+
+    /**
+     * Colors
+     */
+
+    &.sg-list--colors {
+
+        li {
+            margin-bottom: 0;
+        }
+    }
+
+    /**
+     * Templates
+     */
+
+    &.sg-list--templates {
+        counter-reset: item;
+
+        .sg-list {
+            counter-reset: item;
+            margin-bottom: 0;
+            margin-left: 1em;
+            padding-left: 1em;
+        }
+
+        li {
+            color: $sg-color-secondary;
+            font-family: $sg-font-secondary;
+            font-weight: $sg-weight-semi-bold;
+            letter-spacing: 0.125em;
+
+            &:before {
+                content: counters(item, ".") ". ";
+                counter-increment: item
+            }
+
+            a {
+                border-bottom: 0.125em solid transparent;
+                color: $sg-color-gray-dark;
+                text-decoration: none;
+                transition: border-color 0.25s;
+
+                &:focus,
+                &:hover {
+                    border-bottom-color: $sg-color-gray-dark;
+                }
+            }
+
+            li {
+                font-weight: $sg-weight-normal;
+            }
+        }
+    }
+}
+
+@media all and (min-width: $sg-bp-medium) {
+
+    .sg-list {
+
+        &.sg-list--colors {
+            @include sg-clearfix();
+            display: flex;
+            margin-right: -1em;
+            margin-left: -1em;
+
+            li {
+                flex: 0 0 25%;
+                width: 25%;
+
+                .sg-header {
+                    margin-right: 1em;
+                    margin-left: 1em;
+                }
+
+                .sg-color {
+                    margin-right: 1em;
+                    margin-left: 1em;
+                }
+            }
+        }
+    }
+}

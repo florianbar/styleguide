@@ -1,0 +1,113 @@
+/**
+ * LISTS
+ */
+
+/* -------------------------------------------------------------------------- *\
+   #TABLE OF CONTENTS
+\* -------------------------------------------------------------------------- */
+
+/**
+ * DESCRIPTION
+ * CUSTOM
+ */
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #DESCRIPTION
+\* -------------------------------------------------------------------------- */
+
+dl {
+    @include list();
+
+    dt {
+        font-weight: $weight-bold;
+    }
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #CUSTOM
+\* -------------------------------------------------------------------------- */
+
+.list {
+    @include list();
+
+    /**
+     * Inline
+     */
+
+    &.list--inline {
+
+        li {
+            display: inline-block;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+
+            &:last-child {
+                margin-right: 0;
+                margin-bottom: 0;
+            }
+        }
+
+        /**
+         * Separator
+         */
+
+        &.list--separator {
+
+            li {
+                padding-left: 1.125em;
+                position: relative;
+
+                &:first-child {
+                    padding-left: 0;
+
+                    &:before {
+                        display: none;
+                    }
+                }
+
+                &:before {
+                    color: $color-gray-dark;
+                    content: "|";
+                    left: 0;
+                    padding-right: 0.375em;
+                    position: absolute;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    /**
+     * Ordered
+     */
+
+    &.list--ordered {
+        list-style: decimal;
+        margin-left: 1.5rem;
+    }
+
+    /**
+     * Unordered
+     */
+
+    &.list--unordered {
+        list-style: square;
+        margin-left: 1.5rem;
+    }
+
+    /**
+     * Unstyled
+     */
+
+    &.list--unstyled {
+        @include list();
+    }
+}

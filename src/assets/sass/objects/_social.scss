@@ -1,0 +1,41 @@
+/* -------------------------------------------------------------------------- *\
+   #SOCIAL
+\* -------------------------------------------------------------------------- */
+
+.social {
+    line-height: 1;
+    margin-bottom: 1em;
+
+    /* List */
+
+    .social__list {
+        @include clearfix();
+        @include list();
+
+        /* Item */
+
+        .social__item {
+            float: left;
+            margin-right: 1em;
+            margin-bottom: 0;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    /* Link */
+
+    .social__link {
+        color: $color-silver;
+        font-size: 1.875em; /* 30 / 16 */
+        text-decoration: none;
+        transition: color 0.25s;
+
+        &:focus,
+        &:hover {
+            color: $color-gray-dark;
+        }
+    }
+}

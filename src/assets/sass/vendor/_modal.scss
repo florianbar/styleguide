@@ -1,0 +1,122 @@
+/* -------------------------------------------------------------------------- *\
+   Modal | 3.3.7 | http://getbootstrap.com/javascript/#modals
+\* -------------------------------------------------------------------------- */
+
+.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+    bottom: 0;
+    display: none;
+    left: 0;
+    outline: 0;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1050;
+}
+
+.modal.fade .modal-dialog {
+    transform: translate(0, -25%);
+    transition: transform 0.3s ease-out;
+}
+
+.modal.in .modal-dialog {
+    transform: translate(0, 0);
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal-dialog {
+    margin: 10px;
+    position: relative;
+    width: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 3px 9px rgba(0,0,0, 0.5);
+    outline: 0;
+    position: relative;
+}
+
+.modal-backdrop {
+    background-color: #000;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1040;
+}
+
+.modal-backdrop.fade {
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.modal-header {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px;
+}
+
+.modal-title {
+    line-height: 1.42857143;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 15px;
+    position: relative;
+}
+
+.modal-footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 15px;
+    text-align: right;
+}
+
+.modal-scrollbar-measure {
+    height: 50px;
+    overflow: scroll;
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+}
+
+@media (min-width: $bp-small) {
+
+    .modal-dialog {
+        margin: 30px auto;
+        width: 600px;
+    }
+
+    .modal-content {
+        box-shadow: 0 5px 15px rgba(0,0,0, 0.5);
+    }
+
+    .modal-sm {
+        width: 300px;
+    }
+}
+
+@media (min-width: $bp-medium) {
+
+    .modal-lg {
+        width: 900px;
+    }
+}

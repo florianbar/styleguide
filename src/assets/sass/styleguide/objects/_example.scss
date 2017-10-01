@@ -1,0 +1,22 @@
+/* -------------------------------------------------------------------------- *\
+   #EXAMPLE
+\* -------------------------------------------------------------------------- */
+
+.sg-example {
+    @include sg-clearfix();
+    padding: 1em;
+    position: relative;
+
+    & + .sg-example {
+        margin-top: 1em;
+    }
+
+    /**
+     * Flat
+     */
+
+    &.sg-example--flat {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}

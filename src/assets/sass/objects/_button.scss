@@ -1,0 +1,284 @@
+/**
+ * BUTTON
+ */
+
+/* -------------------------------------------------------------------------- *\
+   #TABLE OF CONTENTS
+\* -------------------------------------------------------------------------- */
+
+/**
+ * BUTTON
+ * DROPDOWN
+ * GROUP
+ */
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #BUTTON
+\* -------------------------------------------------------------------------- */
+
+.btn {
+    background-color: $color-gray-dark;
+    border: 0.125em solid transparent;
+    color: $color-white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $font;
+    font-size: 1em;
+    font-weight: $weight-bold;
+    height: 2.625em; /* 42 / 16 */
+    line-height: 1;
+    padding: 0.6875em 1em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &.is-active,
+    &:focus,
+    &:hover {
+        background-color: $color-white;
+        border-color: $color-black;
+        color: $color-black;
+        outline: 0;
+    }
+
+    /**
+     * Disabled
+     */
+
+    &[disabled] {
+        background-color: $color-silver;
+        border-color: $color-silver;
+        color: $color-white;
+
+        &.is-active,
+        &:focus,
+        &:hover {
+            background-color: $color-silver;
+            border-color: $color-silver;
+            color: $color-white;
+        }
+    }
+
+    /**
+     * Icon
+     */
+
+    &.btn--icon {
+
+        .icon {
+            margin-left: 0.5em;
+
+            &.icon--left {
+                margin-right: 0.5em;
+                margin-left: 0;
+            }
+
+            &.icon--only {
+                margin-right: 0;
+                margin-left: 0;
+            }
+        }
+    }
+
+    /**
+     * Secondary
+     */
+
+    &.btn--secondary {
+        background-color: $color-white;
+        border-color: $color-gray;
+        color: $color-gray;
+
+        &.is-active,
+        &:focus,
+        &:hover {
+            background-color: $color-gray;
+            color: $color-white;
+        }
+    }
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #DROPDOWN
+\* -------------------------------------------------------------------------- */
+
+.btn-dropdown {
+    display: inline-block;
+    position: relative;
+
+    /* Dropdown */
+
+    .dropdown {
+        background-color: $color-white-dark;
+        display: none;
+        left: 0;
+        min-width: 10em; /* 160 / 16 */
+        position: absolute;
+        text-align: left;
+        top: 100%;
+        z-index: $z-index-btn-dropdown;
+
+        &.is-open {
+            display: block;
+        }
+
+        /* List */
+
+        .dropdown__list {
+            @include list();
+
+            /* Item */
+
+            .dropdown__item {
+                font-weight: $weight-bold;
+                margin-bottom: 0;
+
+                &.is-separator {
+                    border-bottom: 0.125em solid $color-white;
+                }
+            }
+        }
+
+        /* Link */
+
+        .dropdown__link {
+            color: $color-gray-dark;
+            display: block;
+            padding: 0.75em 1em;
+            text-decoration: none;
+            transition: background-color 0.25s, color 0.25s;
+
+            &:focus,
+            &:hover {
+                background-color: $color-gray-dark;
+                color: $color-white;
+            }
+        }
+    }
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #GROUP
+\* -------------------------------------------------------------------------- */
+
+.btn-group {
+    @include clearfix();
+    margin-top: 2em;
+    margin-bottom: -1em;
+    width: 100%;
+
+    /* Button */
+
+    .btn {
+        margin-bottom: 1em;
+        width: 100%;
+    }
+
+    /* Dropdown */
+
+    .btn-dropdown {
+        margin-bottom: 1em;
+        width: 100%;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn {
+            float: left;
+            margin-right: 0;
+            margin-bottom: 0;
+            width: auto;
+
+            & + .btn {
+                margin-left: 0.0625em;
+            }
+        }
+    }
+
+    /**
+     * Flat
+     */
+
+    &.btn-group--flat {
+        margin-top: 0;
+    }
+
+    /**
+     * Right-aligned
+     */
+
+    &.btn-group--right {
+
+        .btn-dropdown {
+            margin-right: 1em;
+            margin-left: 0;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .btn {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media all and (min-width: $bp-small) {
+
+    .btn-group {
+        margin-top: 4em;
+
+        .btn {
+            margin-right: 1em;
+            width: auto;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .btn-dropdown {
+            margin-bottom: 0;
+            margin-left: 1em;
+            width: auto;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        &.btn-group--center {
+            text-align: center;
+        }
+
+        &.btn-group--right {
+            text-align: right;
+
+            .btn {
+                margin-right: 0;
+                margin-left: 1em;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

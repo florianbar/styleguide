@@ -1,0 +1,106 @@
+/* -------------------------------------------------------------------------- *\
+   #TABLE
+\* -------------------------------------------------------------------------- */
+
+.table {
+    border: 0.125em solid $color-silver;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    width: 100%;
+
+    /* Caption */
+
+    .table__caption {
+        font-weight: $weight-bold;
+        margin-bottom: 1em;
+        text-align: left;
+    }
+
+    /* Head */
+
+    thead {
+        display: none;
+    }
+
+    /* Body */
+
+    tbody {
+
+        tr {
+
+            &:nth-child(odd) {
+                background-color: $color-white-dark;
+            }
+
+            td {
+                @include clearfix();
+                border-bottom: 0.125em solid $color-silver;
+                border-right: 0.125em solid $color-silver;
+                display: block;
+                padding: 0.5em 1em;
+                text-align: right;
+
+                &:before {
+                    content: attr(data-label);
+                    float: left;
+                    font-weight: $weight-bold;
+                }
+            }
+        }
+    }
+
+    /* Foot */
+
+    tfoot {
+        font-style: italic;
+        text-align: left;
+
+        tr {
+
+            &:nth-child(odd) {
+                background-color: inherit;
+            }
+        }
+
+        td {
+            padding: 0.5em 1em;
+
+            a {
+                @include anchor();
+            }
+        }
+    }
+}
+
+@media all and (min-width: $bp-small) {
+
+    .table {
+
+        thead {
+            display: table-header-group;
+
+            th {
+                background-color: $color-white;
+                border-right: 0.125em solid $color-silver;
+                border-bottom: 0.125em solid $color-silver;
+                padding: 0.5em 1em;
+                text-align: left;
+            }
+        }
+
+        tbody {
+
+            tr {
+
+                td {
+                    display: table-cell;
+                    text-align: left;
+
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+/* -------------------------------------------------------------------------- *\
+   #UPGRADE
+\* -------------------------------------------------------------------------- */
+
+.upgrade {
+    background-color: $color-silver;
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+
+    /* Link */
+
+    .upgrade__link {
+        color: $color-blue;
+    }
+}

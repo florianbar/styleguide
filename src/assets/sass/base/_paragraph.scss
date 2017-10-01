@@ -1,0 +1,21 @@
+/* -------------------------------------------------------------------------- *\
+   #PARAGRAPH
+\* -------------------------------------------------------------------------- */
+
+p {
+    margin-top: 0;
+    margin-bottom: 2rem;
+
+    /* Anchor */
+
+    a {
+        @include anchor();
+    }
+
+    /* Mark */
+
+    mark {
+        background-color: $color-yellow;
+        color: $color-black;
+    }
+}

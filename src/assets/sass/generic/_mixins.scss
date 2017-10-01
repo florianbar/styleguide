@@ -1,0 +1,265 @@
+/**
+ * MIXINS
+ */
+
+/* -------------------------------------------------------------------------- *\
+   #TABLE OF CONTENTS
+\* -------------------------------------------------------------------------- */
+
+/**
+ * ANCHOR
+ * ANIMATION
+ * BLOCKQUOTE
+ * CLEARFIX
+ * FIGURE
+ * HEADING
+ * HORIZONTAL RULE
+ * KEYFRAMES
+ * LIST
+ */
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #ANCHOR
+\* -------------------------------------------------------------------------- */
+
+@mixin anchor($border-bottom-color: $color-gray,
+              $border-bottom-color-hover: $color-blue,
+              $color: $color-black,
+              $color-hover: $color-blue) {
+    border-bottom: 0.0625em solid $border-bottom-color;
+    color: $color;
+    text-decoration: none;
+    transition: border-color 0.25s, color 0.25s;
+
+    &:focus,
+    &:hover {
+        border-bottom-color: $border-bottom-color-hover;
+        color: $color-hover;
+    }
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #ANIMATION
+\* -------------------------------------------------------------------------- */
+
+/**
+ * The animation CSS property is a shorthand property for animation-name, animation-duration, animation-timing-function,
+ * animation-delay, animation-iteration-count, animation-direction, animation-fill-mode and animation-play-state.
+ * https://developer.mozilla.org/en/docs/Web/CSS/animation
+ *
+ * E.g.:
+ *
+ * @include animation('<animation-name> <animation-duration> <animation-iteration-count>');
+ */
+
+@mixin animation($str) {
+    animation: #{$str};
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #BLOCKQUOTE
+\* -------------------------------------------------------------------------- */
+
+@mixin blockquote() {
+    border-left: 0.25em $color-gray solid;
+    margin: 2em 0 2em 2em;
+    padding: 0 2em;
+
+    /* Paragraph */
+
+    p {
+        font-weight: $weight-bold;
+        quotes: "\201C""\201D""\2018""\2019";
+        margin-bottom: 0;
+
+        &:before {
+            content: open-quote;
+        }
+
+        &:after {
+            content: close-quote;
+        }
+    }
+
+    /* Cite */
+
+    cite {
+        display: block;
+        margin-top: 1em;
+
+        a {
+            @include anchor();
+        }
+    }
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #CLEARFIX
+\* -------------------------------------------------------------------------- */
+
+/**
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #FIGURE
+\* -------------------------------------------------------------------------- */
+
+@mixin figure() {
+    margin: 2em 0;
+
+    /* Image */
+
+    img {
+        margin-bottom: 0.5em;
+    }
+
+    /* Caption */
+
+    figcaption {
+        color: $color-gray-dark;
+
+        a {
+            @include anchor();
+        }
+    }
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #HEADING
+\* -------------------------------------------------------------------------- */
+
+@mixin heading($font-size, $percentage, $line-height: 1.2) {
+    font-family: $font-secondary;
+    font-size: $font-size;
+    font-weight: $weight-bold;
+    line-height: $line-height;
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+    @media all and (min-width: $bp-small) {
+        font-size: ($font-size / $percentage) * 100; /* Increase the font size by a percentage */
+    }
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #HORIZONTAL RULE
+\* -------------------------------------------------------------------------- */
+
+@mixin hr() {
+    border: 0;
+    border-top: 0.25em solid $color-gray;
+    display: block;
+    margin: 2em 0;
+    padding: 0;
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #LIST
+\* -------------------------------------------------------------------------- */
+
+@mixin list() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* Lists */
+
+    dl,
+    ol,
+    ul {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Items */
+
+    dd,
+    li {
+        margin-bottom: 1rem;
+        margin-left: 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   #KEYFRAMES
+\* -------------------------------------------------------------------------- */
+
+/**
+ * The @keyframes CSS at-rule lets authors control the intermediate steps in a CSS animation sequence by establishing
+ * keyframes (or waypoints) along the animation sequence that must be reached by certain points during the animation.
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes
+ *
+ * E.g.
+ *
+   @include keyframes(<identifier>) {
+       from { <properties> }
+         to { <properties> }
+   }
+ */
+
+@mixin keyframes($animation-name) {
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}

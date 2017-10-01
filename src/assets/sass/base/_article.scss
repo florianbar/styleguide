@@ -1,0 +1,94 @@
+/* -------------------------------------------------------------------------- *\
+   #ARTICLE
+\* -------------------------------------------------------------------------- */
+
+.article {
+    padding-bottom: 1em;
+
+    /* Body */
+
+    .article__body {
+
+        /* Block Quote */
+
+        blockquote {
+            @include blockquote();
+        }
+
+        /* Figure */
+
+        figure {
+            @include figure();
+        }
+
+        /* Horizontal Rule */
+
+        hr {
+            @include hr();
+        }
+
+        /* Lists */
+
+        dl,
+        ol,
+        ul {
+            @include list();
+            margin-bottom: 1.5rem;
+
+            dd,
+            li {
+
+                a {
+                    @include anchor();
+                }
+            }
+        }
+
+        /* Ordered */
+
+        ol {
+            list-style: decimal;
+            margin-left: 1.5rem;
+        }
+
+        /* Unordered */
+
+        ul {
+            list-style: square;
+            margin-left: 1.5rem;
+        }
+    }
+}
+
+@media all and (min-width: $bp-small) {
+
+    .article {
+
+        .article__body {
+
+            dl,
+            ol,
+            ul {
+                font-size: 1.125em; /* 18 / 16 */
+
+                dl,
+                ol,
+                ul {
+                    font-size: 1em;
+                }
+            }
+
+            p {
+                font-size: 1.125em; /* 18 / 16 */
+            }
+
+            .u-pull--right {
+                margin-left: 2em;
+            }
+
+            .u-pull--left {
+                margin-right: 2em;
+            }
+        }
+    }
+}

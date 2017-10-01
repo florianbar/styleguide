@@ -1,0 +1,120 @@
+/* -------------------------------------------------------------------------- *\
+   #PAGINATION
+\* -------------------------------------------------------------------------- */
+
+.pagination {
+    text-align: center;
+
+    /* List */
+
+    .pagination__list {
+        @include clearfix();
+        @include list();
+
+        /* Item */
+
+        .pagination__item {
+            display: none;
+            margin-bottom: 0;
+
+            /* Previous */
+
+            &:first-child {
+                display: block;
+                float: left;
+
+                .icon {
+                    margin-right: 0.5em;
+                }
+            }
+
+            /* Next */
+
+            &:last-child {
+                display: block;
+                float: right;
+
+                .icon {
+                    margin-left: 0.5em;
+                }
+            }
+
+            /* Icon */
+
+            .icon {
+                font-size: 0.875em; /* 14 / 16 */
+            }
+
+            /**
+             * Disabled
+             */
+
+            &.is-disabled {
+                background-color: $color-white-dark;
+                color: $color-silver;
+                padding: 0.375em 0.875em;
+            }
+
+            /**
+             * Selected
+             */
+
+            &.is-selected {
+
+                .pagination__link {
+                    background-color: $color-gray;
+                    color: $color-black;
+
+                    &:focus,
+                    &:hover {
+                        background-color: $color-gray;
+                    }
+                }
+            }
+
+            /**
+             * Spacer
+             */
+
+            &.is-spacer {
+                padding: 0.375em 0.875em;
+            }
+        }
+    }
+
+    /* Link */
+
+    .pagination__link {
+        background-color: $color-white-dark;
+        color: $color-gray-dark;
+        display: block;
+        font-weight: $weight-bold;
+        padding: 0.375em 0.875em;
+        text-decoration: none;
+        transition: background-color 0.25s;
+
+        &:focus,
+        &:hover {
+            background-color: $color-silver;
+        }
+    }
+}
+
+@media all and (min-width: $bp-small) {
+
+    .pagination {
+
+        .pagination__list {
+
+            .pagination__item {
+                display: inline-block;
+
+                &:first-child,
+                &:last-child {
+                    display: inline-block;
+                    float: none;
+                }
+            }
+        }
+    }
+}

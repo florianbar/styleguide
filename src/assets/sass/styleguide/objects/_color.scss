@@ -1,0 +1,24 @@
+/* -------------------------------------------------------------------------- *\
+   #COLOR
+\* -------------------------------------------------------------------------- */
+
+.sg-color {
+    padding: 1em;
+
+    /* Value */
+
+    .sg-color__value {
+        color: $sg-color-black;
+        font-family: $sg-font;
+        font-size: 0.875em; /* 14 / 16 */
+        font-weight: $sg-weight-bold;
+
+        & + .sg-color__value {
+            font-weight: $sg-weight-normal;
+        }
+
+        &.sg-color__value--light {
+            color: $sg-color-white-dark;
+        }
+    }
+}

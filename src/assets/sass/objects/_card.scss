@@ -1,0 +1,63 @@
+/* -------------------------------------------------------------------------- *\
+   #CARD
+\* -------------------------------------------------------------------------- */
+
+.card {
+    max-width: 18.75em; /* 300 / 16 */
+
+    /* Body */
+
+    .card__body {
+        @include clearfix();
+        border-right: 0.125em solid $color-silver;
+        border-bottom: 0.125em solid $color-silver;
+        border-left: 0.125em solid $color-silver;
+        padding: 1.25em 1em 1em 1em;
+    }
+
+    /* Link */
+
+    .card__link {
+        display: block;
+    }
+
+    /* Image */
+
+    .card__img {
+        display: block;
+    }
+
+    /* Title */
+
+    .card__title {
+        color: $color-gray-dark;
+        font-size: 1.125em; /* 18 / 16 */
+        margin-bottom: 0.25em;
+
+        a {
+            color: $color-gray-dark;
+            text-decoration: none;
+            transition: color 0.25s;
+
+            &:focus,
+            &:hover {
+                color: $color-black;
+            }
+        }
+    }
+
+    /* Synopsis */
+
+    .card__synopsis {
+        color: $color-gray-dark;
+        margin-bottom: 1em;
+    }
+
+    /* Time */
+
+    .card__time {
+        color: $color-gray;
+        display: block;
+        font-size: 0.9375em; /* 15 / 16 */
+    }
+}

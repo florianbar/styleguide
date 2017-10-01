@@ -1,0 +1,159 @@
+/* -------------------------------------------------------------------------- *\
+   #NAVIGATION
+\* -------------------------------------------------------------------------- */
+
+.nav {
+
+    /* List */
+
+    .nav__list {
+        @include clearfix();
+        @include list();
+        white-space: nowrap;
+
+        /* Item */
+
+        .nav__item {
+            position: relative;
+
+            /**
+             * Active
+             */
+
+            &.is-active {
+
+                .nav__link {
+                    color: $color-black;
+                }
+            }
+        }
+
+        /* Menu */
+
+        .menu {
+            display: none;
+
+            .menu__list {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            &.is-open {
+                display: block;
+            }
+        }
+    }
+
+    /* Link */
+
+    .nav__link {
+        color: $color-gray-dark;
+        display: block;
+        font-weight: $weight-bold;
+        text-decoration: none;
+        transition: color 0.25s;
+
+        &:focus,
+        &:hover {
+            color: $color-black;
+        }
+
+        /* Icon */
+
+        .icon {
+            float: right;
+        }
+    }
+
+    /**
+     * Primary
+     */
+
+    &.nav--primary {
+
+        /* List */
+
+        .nav__list {
+
+            /* Item */
+
+            .nav__item {
+                margin-bottom: 1em;
+            }
+        }
+    }
+
+    /**
+     * Secondary
+     */
+
+    &.nav--secondary {
+
+        /* List */
+
+        .nav__list {
+
+            /* Item */
+
+            .nav__item {
+                border-bottom: 0.125em solid $color-white;
+                margin-bottom: 0;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        /* Link */
+
+        .nav__link {
+            background-color: $color-white-dark;
+            padding: 0.5em 1em;
+            transition: background-color 0.25s, color 0.25s;
+
+            &:focus,
+            &:hover {
+                background-color: $color-gray-dark;
+                color: $color-white;
+            }
+        }
+    }
+}
+
+@media all and (min-width: $bp-small) {
+
+    .nav {
+
+        .nav__link {
+
+            .icon {
+                float: none;
+                margin-left: 0.375em;
+            }
+        }
+
+        &.nav--primary {
+
+            .nav__list {
+
+                .nav__item {
+                    display: inline-block;
+                    margin-bottom: 0;
+                    margin-left: 1.5em;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+
+                .menu {
+                    left: 0;
+                    position: absolute;
+                    top: 100%;
+                    z-index: $z-index-menu-dropdown;
+                }
+            }
+        }
+    }
+}
